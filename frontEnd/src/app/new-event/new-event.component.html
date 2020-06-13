@@ -1,0 +1,41 @@
+<app-header2></app-header2>
+<div class ="row" style= "margin-left:220px;margin-top: 100px" >
+  <div class="col-sm-8 col-sm-offset-2">
+    <h1 class ="text-center">Formulaire d'evenement</h1>
+    <form [formGroup]="createEvent"   (ngSubmit)="onUpload()" >
+
+      <div class="form-group">
+        <label for="title" >Event Title</label>
+        <input type="text" class="form-control" id="title" placeholder="title" formControlName="title" required>
+      </div>
+
+      <div class="form-group">
+        <label for="detail">Tell us</label>
+        <textarea class="form-control" id="detail" rows="5" formControlName="detail" ></textarea>
+      </div>
+
+      <div class="form-group">
+        <app-date-set></app-date-set>
+      </div>
+
+      <div class="form-group">
+        <label for="image">Would you upload a picture ?</label>
+        <input type="file" class="form-control-file" id="image"  (change)="onFileChanged($event)" required>
+      </div>
+
+      <button type="submit" class="btn btn-success" >submit</button>
+    </form><br>
+
+    <alert type="success" *ngIf="isDone == true">
+      <strong>Well Done ! </strong> C'est Bien Enregistré.
+    </alert>
+
+    <alert type="danger" *ngIf="isDone == false">
+      <strong>Oops!</strong> C'est pas bien enregistré!!.
+    </alert>
+  </div>
+
+
+</div>
+
+

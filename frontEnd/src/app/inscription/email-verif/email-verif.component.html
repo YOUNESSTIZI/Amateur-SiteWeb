@@ -1,0 +1,50 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left text-info">Checking your Email</h4>
+  <button type="button" class="close pull-right" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div  class="modal-body">
+  <div class="form-group">
+    <label>  An email will be sent to <Strong style="color: #424f95">{{this.signUp.get('email').value}}</Strong>  with a code !</label><br>
+    <button (click)="sendCode()" class="btn btn-info" >Send !</button>
+  </div>
+  <alert type="danger" *ngIf="isSent == 'wait'">
+    Please Wait ..
+  </alert>
+
+  <alert type="success" *ngIf="isSent == 'done'">
+    <strong>C' bon</strong> please check your Email<br>
+  </alert>
+
+
+  <form [formGroup]="codeVerify" (ngSubmit)="VerifyCode(template)">
+  <div class="form-group">
+    <label>Please enter the code bellow :</label><br>
+
+    <input  class="form-control" type="text" formControlName="codeVerif" required><br>
+    <p *ngIf="falseValue == true" style="color: darkred">the value doesn't match .. please try again or resend the code!</p>
+    <button style="position: center" type="submit" class="btn btn-light">Verify</button>
+  </div>
+  </form>
+
+</div>
+
+
+<ng-template class="align-content-lg-center" #template>
+  <div class="modal-body text-center">
+    <alert type="info" *ngIf="isDone == 'wait'">
+      <strong>Please Wait .. </strong>
+    </alert>
+
+    <alert type="success" *ngIf="isDone == 'true'">
+      <strong>Well Done ! </strong> C'est Bien Enregistré <b> Veuillez vous connecter svp  </b>
+      <button type="button" class="btn btn-default" (click)="refresh()" >Ok merci</button>
+    </alert>
+
+    <alert type="danger" *ngIf="isDone == 'false'">
+      <strong>Oops!</strong> C'est pas bien enregistré!! Un problème est survenu
+    </alert>
+
+  </div>
+</ng-template>

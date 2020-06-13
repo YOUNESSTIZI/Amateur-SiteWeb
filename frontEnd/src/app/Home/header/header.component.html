@@ -1,0 +1,17 @@
+<div class = "container" >
+  <nav style="position:fixed">
+    <div class="logo">
+      <img src = "../../../assets/images/logo.jpg">
+    </div>
+    <ul>
+      <li><a routerLink="Home" (click)="HomeClick()" class="active">Home</a></li>
+      <li> <a  routerLink="map" (click)="mapClick()">Relais</a></li>
+      <li><a routerLink="CheckEvent" (click)="CheckEventClick()" >Evenements</a></li>
+      <li *ngIf="this.authService.isAuthenticated=='true'"><a routerLink="CreateEvent" (click)="CreateEventClick()">Create Event</a></li>
+      <li><a routerLink="listRelai" (click)="listRelaiClick()">Mise à jour relai</a></li>
+      <li><a *ngIf="this.authService.isAuthenticated=='true'" routerLink="nvRelai" (click)="NouveauRelaiClick()">Nouveau Relai</a></li>
+    </ul>
+
+  </nav>
+</div>
+<router-outlet></router-outlet>

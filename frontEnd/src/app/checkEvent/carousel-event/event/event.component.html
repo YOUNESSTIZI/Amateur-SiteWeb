@@ -1,0 +1,71 @@
+
+  <div class="modal-header">
+    <h4 class="modal-title">Modification de l'evenement {{eventL.title}}</h4>
+  </div>
+
+
+  <div class="modal-body align-content-lg-center">
+    <div class ="row" style="margin-left: 3%">
+      <div class="col-sm-8 col-sm-offset-2">
+
+        <form [formGroup]="createEvent"   (ngSubmit)="onUpload(validation)" >
+
+          <div class="form-group">
+            <label for="title" >Event Title</label>
+            <input type="text" class="form-control" id="title" formControlName="title" required>
+          </div>
+
+          <div class="form-group">
+            <label for="detail">Tell us</label>
+            <textarea class="form-control" id="detail" rows="5" formControlName="detail" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <p><code>Date :</code> Cet evenement a lieu quand ?</p>
+             <div class="col col-xs-12 col-12 col-md-5 form-group">
+                <input type="text" class="form-control" formControlName="date" required>
+             </div>
+          </div>
+
+          <div class="form-group">
+            <label for="image">Would you change your photo ? </label>
+            <img [src]="eventL.imagePath" style="height: 100px ; width: 100px ">
+            <input type="file" class="form-control-file" id="image"  (change)="onFileChanged($event)" required>
+          </div>
+
+          <br><br><br>
+
+            <div class="btn-toolbar modal-footer">
+              <button type="submit" class="btn btn-success" >Enregistrer</button>
+              <button type="button" class="btn btn-primary" (click)="onLoadData()" >Load Data</button>
+              <button type="button" class="btn btn-light" >Annuler Les modifications</button>
+            </div>
+
+        </form>
+
+
+      </div>
+
+
+    </div>
+
+
+
+  </div>
+
+
+
+
+  <ng-template class="align-content-lg-center"  #validation >
+    <div class="modal-header">
+      <h4 class="modal-title pull-left text-info">Editing an Event</h4>
+      <button type="button" class="btn btn-dark btn-toolbar" (click)="decline()">Ok</button>
+    </div>
+    <div class="modal-body">
+      cet evenement est bien modifié
+
+    </div>
+  </ng-template>
+
+
+

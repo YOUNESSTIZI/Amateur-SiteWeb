@@ -1,0 +1,36 @@
+<div class="p-3 mb-2 bg-dark text-white">Nos Evénements! </div>
+
+<div class="card" style="width: 18rem; margin-left: 0%" *ngFor="let event of events">
+  <img src="{{event.imagePath}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h6>{{event.title}}</h6>
+
+  </div>
+  <div class="col-auto btn-toolbar">
+
+    <button type="button" class="btn btn-danger" (click)="openModal(template,event)">supprimer</button>
+    <button type="button" class="btn btn-info" (click)="onCheck(event._id)">consulter</button>
+  </div>
+</div>
+
+<ng-template class="align-content-lg-center" #template>
+  <div class="modal-body text-center">
+    <p>Do you want to delete this event?</p>
+    <button type="button" class="btn btn-default" (click)="confirm(templateSupprimer)" >Yes</button>
+    <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+  </div>
+</ng-template>
+
+<ng-template class="align-content-lg-center" #templateSupprimer>
+  <div class="modal-header" (click)="decline()">
+    <h4 class="modal-title pull-left text-info">Deleting an Event</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="decline()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    cet evenement est bien supprimé
+
+  </div>
+</ng-template>
+

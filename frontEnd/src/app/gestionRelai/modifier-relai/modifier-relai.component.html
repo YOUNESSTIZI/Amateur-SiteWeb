@@ -1,0 +1,101 @@
+<app-header2></app-header2>
+<div class="card card-primary mess" style="margin-top: 50px">
+  <div class="card-header bg-info text-white">Formulaire Relai </div>
+  <div class="card-body">
+    <form  style="margin-right: 100px" (ngSubmit)="onSubmit(f)" #f="ngForm" >
+
+      <div class="form-group row">
+        <label for="inputRegion" class="col-sm-2 col-form-label text-right" >Région : </label>
+        <div class="col-sm-10">
+          <select id="inputRegion" name="region" placeholder="region" ngModel required>
+            <option selected>Choisir le mode du relai...</option>
+            <option>Agadir</option>
+            <option>Essaouira</option>
+            <option>Rabat</option>
+            <option>Casablanca</option>
+            <option>Khemiset</option>
+            <option>Sidi Kacem</option>
+            <option>Marrackech</option>
+            <option>Beni Mellal</option>
+            <option>Tetouan</option>
+            <option>Oujda</option>
+            <option>Taza</option>
+            <option>Souk El Arbaa</option>
+            <option>Fes</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="form-group row">
+        <label for="inputLatitude" class="col-sm-2 col-form-label text-right">Latitude : </label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="inputLatitude" name="latitude" ngModel required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputLongitude" class="col-sm-2 col-form-label text-right">Longitude : </label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="inputLongitude" name="longitude" ngModel required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="inputSite" class="col-sm-2 col-form-label text-right">Site : </label>
+
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputSite" name="site" placeholder="" ngModel required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="inputFrqTX" class="col-sm-2 col-form-label text-right">Fréquence TX : </label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="inputFrqTX" name="freqTx"  ngModel required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="inputShift" class="col-sm-2 col-form-label text-right">Shift : </label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="inputShift" name="shift" ngModel required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="inputTone" class="col-sm-2 col-form-label text-right">Tone : </label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="inputTone" name="tone" ngModel required>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="inputMode" class="col-sm-2 col-form-label text-right">Mode : </label>
+        <div class="col-sm-10">
+          <select id="inputMode" class="form-control" name="mode"  ngModel required>
+            <option selected>Choisir le mode du relai...</option>
+            <option>HF</option>
+            <option>VHF</option>
+            <option>UHF</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="inputLocator" class="col-sm-2 col-form-label text-right">Locator : </label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputLocator" name="locator" ngModel required >
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <button type="submit" class="btn btn-primary btn-success " [disabled]="f.invalid" style="margin-left: 75%">Entregistrer</button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+

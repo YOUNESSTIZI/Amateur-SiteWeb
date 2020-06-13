@@ -1,0 +1,37 @@
+
+<div class="container">
+
+
+
+      <div class="col-lg-12 offset-lg-1">
+        <div class="register-form">
+          <h3 align="center">Créer un Article</h3>
+          <form  [formGroup]="articleForm" (ngSubmit)="onSaveArticle()" >
+
+            <div class="custom-control" style="padding-bottom: 15px">
+              <input type="text" formControlName="title" class="form-control" id ="title" ngModel name="title" required="required" placeholder="Titre de l'article*">
+            </div>
+
+            <div class="custom-control" style="margin-top: 20px" >
+              <quill-editor formControlName="description" [styles]="{height:'600px'}" type="classic" placeholder="Contenu de l'article *" id="description" #editor></quill-editor>
+            </div>
+
+            <div class="custom-control">
+              <div class="custom-file mt-3 mb-3">
+                <input type="file" class="custom-file-input" id="customFile"  (change)="detectFile($event)"
+                       class="form-control" accept="application/pdf" required="required" >
+                <p class="text-success" *ngIf="fileUploaded" style="color:green"> Fichier chargé avec succés</p>
+                <label style="color: black" class="custom-file-label" for="customFile">{{filename}}</label>
+              </div>
+            </div>
+            <div class="custom-control">
+              <button type="submit" class="site-btn register-btn" [disabled]="this.articleForm.invalid" >Enregistrer activité</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+  </div>
+
+
+

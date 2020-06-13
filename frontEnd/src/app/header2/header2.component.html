@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-sm bg-secondary navbar-dark">
+<a class="navbar-brand nav-link"  routerLink="Home" (click)="HomeClick()" >ARRAM</a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarNavDropdown">
+  <ul class="navbar-nav" >
+
+
+    <li class="nav-item" [routerLinkActive]="['active']">
+      <a class="nav-link"  (click)="HomeClick()" routerLink="map">Home</a>
+    </li>
+
+<!------------------------------- Evenements-------------------->
+    <li class="nav-item dropdown" [routerLinkActive]="['active']">
+      <a class="nav-link dropdown-toggle"  data-toggle="dropdown"
+         aria-haspopup="true" aria-expanded="false" routerLink="relai">Gestion des evenements</a>
+      <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink" >
+        <a class="dropdown-item" (click)="CheckEventClick()" routerLink="CheckEvent">Evenements</a>
+        <a class="dropdown-item" (click)="NewEventClick()"routerLink="nvrelai">Nouveau Evenement</a>
+
+      </div>
+    </li>
+<!-------------------------------------------------------------------------->
+<!------------------ Gestion des relais ------------------------------------->
+
+    <li class="nav-item dropdown" [routerLinkActive]="['active']">
+      <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
+         aria-haspopup="true" aria-expanded="false">Gestion relais</a>
+      <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink" >
+        <a class="dropdown-item" (click)="listRelaiClick()" routerLink="listRelai">Mise à jour relai</a>
+        <a class="dropdown-item" (click)="NouveauRelaiClick()" routerLink="nvRelai">Nouveau Relai</a>
+
+      </div>
+    </li>
+
+
+    <li class="nav-item" [routerLinkActive]="['active']">
+      <a class="nav-link"  (click)="mapClick()" routerLink="map">Relais</a>
+    </li>
+
+    <li class="nav-item" [routerLinkActive]="['active']">
+      <a class="nav-link"  (click)="roleClick()" routerLink="map">Roles</a>
+    </li>
+
+    <li class="nav-item dropdown" [routerLinkActive]="['active']">
+      <a class="nav-link dropdown-toggle"  data-toggle="dropdown"
+         aria-haspopup="true" aria-expanded="false">Gestion des Articles</a>
+      <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink" >
+        <a class="dropdown-item" (click)="ArticlesClick()" routerLink="listRelai">Articles</a>
+        <a class="dropdown-item" (click)="NouveauArticleClick()" routerLink="nvRelai">Nouveau Article</a>
+
+      </div>
+    </li>
+
+
+  </ul>
+</div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+

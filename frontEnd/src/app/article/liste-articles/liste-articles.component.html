@@ -1,0 +1,64 @@
+<app-header2></app-header2>
+<div class ="container">
+  <div class="breacrumb-section" style="margin-left: 50px">
+    <div class="container-fluid">
+      <div class="row text-left">
+        <div class="col-lg-12">
+          <div class="breadcrumb-text">
+            <a routerLink="/home" ><i class="fa fa-home"></i>Home</a>
+            <span class="active">Articles</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="demo">
+    <h2 style="font-weight: bold"><i class="fa fa-sticky-note"></i> Articles techniques des Radio-Amateurs</h2>
+    <hr>
+    <br>
+    <div class="table-responsive-vertical shadow-z-1" style="border:none">
+
+      <div class="blog-details-inner" *ngFor="let article of articles ;let i =index">
+        <div class="posted-by" *ngIf="i%2==0" style="margin-bottom:15px;-webkit-box-shadow: 7px 10px 36px -12px rgba(0,0,0,0.48);
+	-moz-box-shadow: 7px 10px 36px -12px rgba(0,0,0,0.48);border: 2px #252525 solid;
+	box-shadow: 7px 10px 36px -12px rgba(0,0,0,0.48);;background: rgb(255,3,30);background: linear-gradient(90deg, rgba(255,3,30,1) 0%, rgba(49,0,18,1) 0%, rgba(0,237,255,1) 0%, rgba(129,140,140,1) 0%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%);">
+          <div class="pb-text">
+            <h4 style="font-weight:bold">{{article?.title}}</h4>
+            <hr>
+            <br>
+            <a (click)="updateVu(article?._id)" style="cursor: pointer;"><p><i class="ti-new-window" style="color: #e7ab3c;font-weight: bold"></i>&#160;<span style="color: blue; text-decoration: underline; ">Voir cet article.</span></p></a>
+            <br>
+            <i class="ti-user" style="color: #e7ab3c;font-weight: bold"></i>&#160;<span style="font-weight: bold"> {{getIndicatif(article?.creator)}}</span>
+            <span>  </span>
+            <i class="ti-calendar" style="color: #e7ab3c; font-weight: bold;margin-left: 20px"></i>&#160; <span style="font-weight: bold"> {{article?.dateCreate | date: 'dd/MM/yyyy' }}</span>
+            <span>  </span>
+            <i class="ti-eye" style="color: #e7ab3c;font-weight: bold ;margin-left: 20px"></i>&#160;<span style="font-weight: bold"> {{article?.vu}}</span>
+            <span *ngIf="article?.filePath"><i class="fa fa-file-pdf" style="color: #e7ab3c;font-weight: bold ;margin-left: 20px"></i>&#160; <span style="font-weight: bold"> <a [href]="article?.filePath"> voir PDF</a></span>
+ </span>
+
+          </div>
+        </div>
+        <div class="posted-by" *ngIf="i%2==1" style="-webkit-box-shadow: 7px 10px 36px -12px rgba(0,0,0,0.48);
+	-moz-box-shadow: 7px 10px 36px -12px rgba(0,0,0,0.48);;border: 2px #252525 solid;
+	box-shadow: 7px 10px 36px -12px rgba(0,0,0,0.48);;background: rgb(255,255,255);background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 0%, rgba(129,140,140,1) 100%, rgba(49,0,18,1) 100%, rgba(0,237,255,1) 100%, rgba(255,3,30,1) 100%);margin-bottom: 15px">
+          <div class="pb-text">
+            <h4 style="font-weight:bold">{{article?.title}}</h4>
+            <hr>
+            <br>
+            <a  (click)="updateVu(article?._id)" style="cursor: pointer;"><p><i class="ti-new-window" style="color: #e7ab3c;font-weight: bold"></i>&#160;<span style="color: blue; text-decoration: underline; ">Voir cet article.</span></p></a>
+            <br>
+            <i class="ti-user" style="color: #e7ab3c;font-weight: bold"></i>&#160;<span style="font-weight: bold"> {{getIndicatif(article?.creator)}}</span>
+            <span>  </span>
+            <i class="ti-calendar" style="color: #e7ab3c; font-weight: bold;margin-left: 20px"></i>&#160; <span style="font-weight: bold"> {{article?.dateCreate | date: 'dd/MM/yyyy' }}</span>
+            <span>  </span>
+            <i class="ti-eye" style="color: #e7ab3c;font-weight: bold ;margin-left: 20px"></i>&#160;<span style="font-weight: bold"> {{article?.vu}}</span>
+            <span *ngIf="article?.filePath"><i class="fa fa-file-pdf" style="color: #e7ab3c;font-weight: bold ;margin-left: 20px"></i>&#160; <span style="font-weight: bold"> <a [href]="article?.filePath"> voir PDF</a></span></span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,51 @@
+<app-header2></app-header2>
+<div class="container">
+<agm-map [latitude]="lat"
+         [longitude]="lng"
+         style="height: 700px ;
+         width: auto" [zoom]="7"
+         [mapTypeControl]="true"
+         (mapClick)="hideInfo()"
+>
+
+  <agm-marker *ngFor="let relai of relais ;
+                let i=index"
+              [latitude]="relai.latitude"
+              [longitude]="relai.longitude"
+              [animation]="animation"
+              [iconUrl]="'../../assets/antenne.gif'"
+              (markerClick)="showInfo(infoWindow)"
+              (mouseOver)="onMouseOver(infoWindow,relai)">
+
+    <agm-info-window #infoWindow >
+      <table class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Région</th>
+          <th scope="col">Site</th>
+          <th scope="col">Frq.tx</th>
+          <th scope="col">Shift</th>
+          <th scope="col">Tone</th>
+          <th scope="col">Mode</th>
+          <th scope="col">Location</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let relai2 of relais" >
+
+        <tr *ngIf="relai2.region == relai.region" style="background-color: darkslategrey ; font-weight: bold ; color: white" >
+        <td>{{relai2.region}}</td>
+          <td>{{relai2.site}}</td>
+          <td>{{relai2.freqTx}}</td>
+          <td>{{relai2.shift}}</td>
+          <td>{{relai2.tone}}</td>
+          <td>{{relai2.mode}}</td>
+          <td>{{relai2.locator}}</td>
+        </tr>
+
+        </tbody>
+      </table>
+    </agm-info-window>
+  </agm-marker>
+</agm-map>
+
+</div>

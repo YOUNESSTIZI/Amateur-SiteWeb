@@ -1,0 +1,32 @@
+<app-header2></app-header2>
+<div class="container">
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Région</th>
+    <th scope="col">Site</th>
+    <th scope="col">FreqTx</th>
+    <th scope="col">Shift</th>
+    <th scope="col">Tone</th>
+    <th scope="col">Mode</th>
+    <th scope="col">Locator</th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let relai of relais">
+    <td>{{relai.region}}</td>
+    <td>{{relai.site}}</td>
+    <td>{{relai.freqTx}}</td>
+    <td>{{relai.shift}}</td>
+    <td>{{relai.tone}}</td>
+    <td>{{relai.mode}}</td>
+    <td>{{relai.locator}}</td>
+    <button class="btn btn-success m-1" (click)="onModify(relai._id)" >Modifier</button>
+    <button class="btn btn-danger m-1" (click)="onDelete(relai._id)" >Supprimer</button>
+  </tr>
+
+  </tbody>
+</table>
+</div>

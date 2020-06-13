@@ -1,0 +1,64 @@
+<app-header2></app-header2>
+<div class = "container" >
+
+  <div style=" border-top:bisque solid "></div>
+   <div class="row ">
+     <span class="border-bottom border-left border-right border-info" style="margin-left: -200px ;margin-top: 2%">
+        <div class="col-auto mr-auto" >
+
+            <app-menu-left [events]="events"></app-menu-left>
+
+        </div>
+     </span>
+
+     <div class="col">
+       <img src="../../assets/images/arram.jpg" class="card-img">
+       <hr/>
+       <app-carousel-event  [events]="events"></app-carousel-event>
+       <hr/>
+
+
+       <div class="row">
+         <div class="col" >
+
+           <p style="margin-left: 2%"><b>perhaps you would like our products , please</b>
+             <button type="button" class="btn btn-success rounded-circle" style="margin-left: 2%" > see our catalogue  </button>
+           </p>
+           <br>
+
+           <app-carousel-product ></app-carousel-product>
+
+
+         </div>
+       </div>
+     </div>
+
+     <div class="col-auto" style="margin-top: 2%;margin-right: -200px">
+
+       <app-menu-left [events]="events"></app-menu-left>
+
+     </div>
+
+   </div>
+
+  <div class="row">
+    <div class="col">
+
+      <hr/><br>
+      <h3 style="margin-left: 7%"><b><u>Comments :</u></b></h3><br>
+
+      <app-comments></app-comments>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+

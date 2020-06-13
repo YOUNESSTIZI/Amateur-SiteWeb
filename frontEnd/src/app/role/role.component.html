@@ -1,0 +1,33 @@
+<app-header2></app-header2>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">userName</th>
+      <th scope="col">email</th>
+      <th scope="col">state</th>
+      <th scope="col">isAdmin</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let user of users ">
+
+      <td>{{user.userName}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.state}}</td>
+      <td>{{user.isAdmin}}</td>
+
+      <button class="btn btn-success m-1" *ngIf="user.state == 'pending'"  (click)="onAccepter(user)">Accepter</button>
+     <button class="btn btn-primary m-1" *ngIf="user.state == 'pending'" (click)="onRejeter(user)">Rejeter</button>
+
+      <button class="btn btn-info m-1" *ngIf="user.state == 'accepted' && user.isAdmin == false" (click)="makeAdmin(user)" >Admin</button>
+      <button class="btn btn-dark m-1" *ngIf="user.state == 'accepted' && user.isAdmin == true" (click)="makeVisiteur(user)">Visiteur</button>
+      <button class="btn btn-danger m-1" *ngIf="user.state == 'accepted'" (click)="onRejeter(user)" >Supprimer le compte</button>
+    </tr>
+
+    </tbody>
+  </table>
+</div>

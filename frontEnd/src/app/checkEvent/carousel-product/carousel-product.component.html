@@ -1,0 +1,15 @@
+<div class="justify-content-center" >
+  <carousel [itemsPerSlide]="itemsPerSlide"
+            [singleSlideOffset]="singleSlideOffset"
+            [startFromIndex]="0"
+            [interval]="false">
+    <slide *ngFor="let slide of slides; let index=index" class="mx-auto">
+      <img [src]="slide.image" alt="image slide" style="display: grid; width: 100%;">
+      <div class="carousel-caption">
+        <h4>Slide {{index}}</h4>
+      </div>
+    </slide>
+  </carousel>
+
+
+</div>

@@ -1,0 +1,31 @@
+<app-header></app-header>
+
+
+<section class="sec1">
+<div  *ngIf="this.authService.isAuthenticated == 'false'">
+  <button class="button" type="button" (click)="OnConnexion(templateConnexion)"  >Connexion</button>
+  <p style="margin-left: -30px;margin-top: -30px;font-family: 'Balsamiq Sans', cursive;text-align: center;color: aliceblue">vous n'avez pas encore de compte ?!<br>veuillez <button (click)="onInscription(templateInscription)" class="btn btn-light connexionForm">S'enregistrer</button> </p>
+
+</div>
+
+<div  *ngIf="this.authService.isAuthenticated =='true'">
+    <button class="button" style=" background-color:darkred" type="button" (click)="OnDeconnexion(templateConnexion)"  >Déconnexion</button>
+</div>
+
+</section>
+<section class="sec2"></section>
+<section class="sec3"></section>
+<section class="sec4"></section>
+<section class="sec5"></section>
+
+
+<!-- template of connexion -->
+<ng-template #templateConnexion>
+  <app-connexion></app-connexion>
+</ng-template>
+
+
+<!-- template of Inscription -->
+<ng-template #templateInscription>
+  <app-inscription></app-inscription>
+</ng-template>
